@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:ital,wght@1,300&display=swap');
+$font-default: Arial;
+$font-web: 'Titillium Web', sans-serif;
+$font-ubuntu: 'Ubuntu', sans-serif;
+$primary: #BB86FC;
+$text: rgb(0, 0, 0);
+$background-darker: #121416;
+$secondary: #03DAC6;
+$background: #22272b;
+$background-secondary: #273238;
+$background-secondary-transparent: #27323896;
+$error: #CF6679;
+
+
+$body-project: rgb(34, 34, 34);
+$main-project: rgb(36, 36, 36);
+:root {
+    font-family: $font-default;
+}
+html {
+    background-color: $background;
+    color: $error;
+}
+@mixin button($theme: $primary, $text-color: $text, $hover: $secondary) {
+    background: $theme;
+    box-shadow: 0 0 1px rgba($theme, .25);
+    color: $text;
+    border: rgba(255, 255, 255, 0) 1px solid;
+    &:hover {
+        opacity: .6;
+    }
+    border-radius: 25px;
+    min-width: 60px;
+    transition: 150ms all ease;
+    cursor: pointer;
+
+}
+@mixin project($theme: $background-secondary, $title-color: $secondary) {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    background: $theme;
+    color: white;
+    border-radius: 15px;
+    transition: 150ms all ease;
+}
+@mixin transparent-button($opacity: 0.8) {
+    @include button;
+    opacity: $opacity;
+} 
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.ta {
+    text-align: center;
+}
+.na {
+    text-align: left;
+}
+
+.box::after {
+    content: "";
+    border-radius: 5px;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), ;
+    border-radius: 15px;
+}
+
+.box:hover {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+}
+.hidden {
+    opacity: 0;
+}
+img {
+    transition: all 250ms ease-in-out;
+}
+
+.primary {
+    color: $primary;
+}
+.error {
+    color: $error;
+}
